@@ -1,0 +1,135 @@
+/* 搜索框 */
+#search {
+  width: 100%;
+  padding: 0.18518518518518517rem;
+  background-color: #fff;
+}
+#search > input {
+  width: 78%;
+  height: 0.5555555555555556rem;
+  border-radius: 0.2777777777777778rem;
+  float: left;
+  padding-left: 0.37037037037037035rem;
+  background-color: #eee;
+}
+#search > a {
+  font-size: 0.25925925925925924rem;
+  width: 20%;
+  height: 0.5555555555555556rem;
+  line-height: 0.5555555555555556rem;
+  text-align: center;
+  border-radius: 0.2777777777777778rem;
+  color: #fff;
+  float: right;
+  background-color: #ff841d;
+}
+/* 导航栏 */
+#nav {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  font-size: 0.25925925925925924rem;
+  margin-top: 0.18518518518518517rem;
+  padding: 0.18518518518518517rem;
+}
+#nav > ul {
+  width: 100%;
+}
+#nav > ul li {
+  width: 25%;
+  float: left;
+  margin-top: 0.37037037037037035rem;
+}
+#nav > ul li > a > img {
+  width: 100%;
+  display: block;
+  width: 1.2962962962962963rem;
+  height: 1.2962962962962963rem;
+  margin: 0 auto;
+}
+#nav > ul li > a > p {
+  margin-top: 0.09259259259259259rem;
+  color: #000;
+}
+/* 折扣推荐 */
+#main .discount {
+  width: 100%;
+  height: 0.6481481481481481rem;
+  margin-top: 0.09259259259259259rem;
+  line-height: 0.6481481481481481rem;
+  padding: 0 0.37037037037037035rem;
+  background-color: #ff9e22;
+  color: #fff;
+}
+#main .discount > h4 {
+  float: left;
+  font-size: 0.2962962962962963rem;
+}
+#main .discount > img {
+  float: right;
+  width: 0.37037037037037035rem;
+  height: 0.37037037037037035rem;
+  margin-top: 0.14814814814814814rem;
+}
+#main .product {
+  font-size: 0.2962962962962963rem;
+  background-color: #fff;
+}
+#main .product > li {
+  height: 2.314814814814815rem;
+  padding: 0.18518518518518517rem 0.37037037037037035rem;
+  border-bottom: 0.018518518518518517rem solid #ccc;
+}
+#main .product > li > div:nth-of-type(1) > img {
+  width: 1.8518518518518519rem;
+  height: 1.8518518518518519rem;
+}
+#main .product > li > div:nth-of-type(2) {
+  padding-left: 0.37037037037037035rem;
+  overflow: hidden;
+}
+#main .product > li > div:nth-of-type(2) > p:first-of-type {
+  height: 1.1111111111111112rem;
+}
+#main .product > li > div:nth-of-type(2) > p:first-of-type > span {
+  color: #ff7917;
+}
+#main .product > li > div:nth-of-type(2) > p:last-of-type > span {
+  font-size: 0.24074074074074073rem;
+  color: #999;
+}
+/* 更多优惠 */
+#more {
+  line-height: 0.5555555555555556rem;
+  font-size: 0.25925925925925924rem;
+  padding: 0.18518518518518517rem;
+  text-align: center;
+  background-color: #fff;
+}
+#more > a {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 0.09259259259259259rem;
+  background-color: #eee;
+}
+/* 品牌排行 */
+#brand {
+  width: 100%;
+  height: 0.6481481481481481rem;
+  margin-top: 0.09259259259259259rem;
+  line-height: 0.6481481481481481rem;
+  padding: 0 0.37037037037037035rem;
+  background-color: #ff9e22;
+  color: #fff;
+  margin: 0.37037037037037035rem 0;
+}
+#brand > h4 {
+  float: left;
+  font-size: 0.2962962962962963rem;
+}
+#brand > img {
+  float: right;
+  width: 0.37037037037037035rem;
+  height: 0.37037037037037035rem;
+  margin-top: 0.14814814814814814rem;
+}

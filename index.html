@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买-首页</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- 项目容器 -->
+    <div class="container">
+        <div id="header">
+            <img src="./images/header_logo.png" alt="">
+            <img src="./images/header_app.png" alt="">
+        </div>
+
+        <!-- 搜索框 版块 -->
+        <div id="search" class="clearfix">
+            <input type="text" placeholder="请输入你想比价的商品">
+            <a href="#">搜索</a>
+        </div>
+
+        <!-- 导航栏 版块 -->
+        <div id="nav">
+            <ul class="clearfix">
+                <!-- 导航条 大坑 -->
+            </ul>
+        </div>
+
+        <!-- 内容 版块 -->
+        <div id="main">
+            <div class="discount clearfix">
+                <h4>超值折扣推荐</h4>
+                <img src="./images/more.png" alt="">
+            </div>
+
+            <ul class="product">
+                <!-- 折扣商品 坑 -->
+            </ul>
+        </div>
+
+        <!-- 更多优惠 版块 -->
+        <div id="more">
+            <a href="moneyctrl.html">更多优惠信息》</a>
+        </div>
+
+        <!-- 品牌排行 -->
+        <div id="brand">
+            <h4>品牌排行</h4>
+            <img src="./images/more.png" alt="">
+        </div>
+
+        <div id="footer">
+            <div class="clearfix">
+                <a href="javascript:;">登录</a>
+                <a href="javascript:;">注册</a>
+                <a href="#">
+                    <img src="./images/top.jpg" alt="">
+                    返回顶部
+                </a>
+            </div>
+            <div>
+                <p>
+                    <span>手机APP下载</span>
+                    <span>慢慢买手机版</span>
+                    <span>--掌上比价平台</span>
+                </p>
+                <span>m.manmanbuy.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航条 模板 -->
+    <script type="text/html" id="tpl1">
+        {{each result v i}}
+        {{if i<= 7}}
+        <li>
+            <a href="{{v.titlehref}}">
+                <!-- <img src="./images/ic_search.png" alt=""> -->
+                {{@v.img}}
+                <p>{{v.name}}</p>
+            </a>
+        </li>
+        {{/if}}
+        {{/each}}
+        <ul style="display: none" class="more_nav">
+            {{each result v i}}
+            {{if i > 7}}
+            <li>
+                <a href="{{v.titlehref}}">
+                    {{@v.img}}
+                    <p>{{v.name}}</p>
+                </a>
+            </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+
+    </script>
+
+
+    <!-- 折扣商品 模板 -->
+    <script type="text/html" id="tpl2">
+        {{each result v i}}
+        <li>
+            <div class="left">
+                <img src={{v.productImgSm.split('imgurl=')[1].split('alt=')[0].split('\"')[0]}} alt="">
+            </div>
+            <div>
+                <p>
+                    <a data-id="{{v.productId}}" href="#">{{v.productName}}</a>
+                    <span>{{v.productPinkage}}</span>
+                </p>
+                <p>
+                    <span>{{v.productFrom}} | <i>{{v.productTime}}</i></span>
+                    <span class="right">{{++i}}</span>
+                </p>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common/route.js"></script>
+    <script src="./js/common/common.js"></script>
+    <script>
+        // 获取菜单栏数据
+        Route.getindex( "getindexmenu", function( info ) {
+            // console.log( info );
+            // 渲染导航栏
+            $( '#nav > ul' ).html( template( 'tpl1', info ) );
+
+            // 给更多按钮注册点击事件
+            $('li:eq(7)').on('click', function (e) {
+                // 阻止a连接跳转
+                e.preventDefault();
+
+                // 显示隐藏 more_nav
+                $('.more_nav').slideToggle(600);
+            });
+        } );
+
+
+        // 获取折扣列表的数据
+        Route.getindex( "getmoneyctrl", function( info ) {
+            // console.log( info );
+            // 渲染折扣列表
+            $( '.product' ).html( template( 'tpl2', info ) );
+
+        } );
+
+
+    </script>
+</body>
+
+</html>
