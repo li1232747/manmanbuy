@@ -1,0 +1,35 @@
+#main {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding-bottom: 10px;
+    >ul {
+        >li {
+            // height: 40px;
+            line-height: 40px;
+            background-color: #ededed;
+            .cate_title {
+                border-bottom: 1px solid #ccc;
+                padding: 0 20px;
+                font-size: 18px;
+                font-weight: 700;
+            }
+            >ul {
+                background-color: #f9f9f9;
+                >li {
+                    text-align: center;
+                    float: left;
+                    font-size: 14px;
+                    color: #333;
+                    width: 33.33%;
+                    height: 40px;
+                    line-height: 40px;
+                    border-bottom: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    &:nth-of-type(3n) {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+}

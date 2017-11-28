@@ -1,28 +1,3 @@
-/* 搜索框 */
-#search {
-  width: 100%;
-  padding: 0.18518518518518517rem;
-  background-color: #fff;
-}
-#search > input {
-  width: 78%;
-  height: 0.5555555555555556rem;
-  border-radius: 0.2777777777777778rem;
-  float: left;
-  padding-left: 0.37037037037037035rem;
-  background-color: #eee;
-}
-#search > a {
-  font-size: 0.25925925925925924rem;
-  width: 20%;
-  height: 0.5555555555555556rem;
-  line-height: 0.5555555555555556rem;
-  text-align: center;
-  border-radius: 0.2777777777777778rem;
-  color: #fff;
-  float: right;
-  background-color: #ff841d;
-}
 /* 导航栏 */
 #nav {
   width: 100%;

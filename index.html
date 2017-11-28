@@ -109,7 +109,8 @@
         {{each result v i}}
         <li>
             <div class="left">
-                <img src={{v.productImgSm.split('imgurl=')[1].split('alt=')[0].split('\"')[0]}} alt="">
+                <!-- <img src={{v.productImgSm.split('imgurl=')[1].split('alt=')[0].split('\"')[0]}} alt=""> -->
+                {{@v.productImgSm}}
             </div>
             <div>
                 <p>
