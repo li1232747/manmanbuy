@@ -30,6 +30,12 @@
 
         // 获取折扣商品详情
         getmoneyctrlproduct: getmoneyctrlproduct,
+
+        // 获取国内折扣商品列表
+        getinlanddiscount: getinlanddiscount,
+
+        // 获取国内折扣商品详情
+        getdiscountproduct: getdiscountproduct,
     };
 
 
@@ -92,9 +98,9 @@
     }
 
     // 获取商品列表
-    function getproductlist(categoryid, pageid, callback) {
+    function getproductlist( categoryid, pageid, callback ) {
         var url1 = Route.baseUrl + 'getproductlist';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             data: {
@@ -102,74 +108,103 @@
                 pageid: pageid
             },
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
     }
 
     // 获取商品详细信息
-    function getproduct(productid , callback) {
+    function getproduct( productid, callback ) {
         var url1 = Route.baseUrl + 'getproduct';
-        $.ajax({
-            type: 'get',
-            url: url1,
-            data: {
-                productid: productid ,
-            },
-            dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
-            }
-        });
-    }
-
-    // 获取商品评论
-    function getproductcom(productid, callback) {
-        var url1 = Route.baseUrl + 'getproductcom';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             data: {
                 productid: productid,
             },
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
+    }
+
+    // 获取商品评论
+    function getproductcom( productid, callback ) {
+        var url1 = Route.baseUrl + 'getproductcom';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                productid: productid,
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
     }
 
     // 省钱控商品列表
     function getmoneyctrl( pageid, callback ) {
         var url1 = Route.baseUrl + 'getmoneyctrl';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             data: {
                 pageid: pageid,
             },
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
     }
 
     // 折扣商品详情
-    function getmoneyctrlproduct(productid , callback) {
+    function getmoneyctrlproduct( productid, callback ) {
         var url1 = Route.baseUrl + 'getmoneyctrlproduct';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             data: {
-                productid : productid ,
+                productid: productid,
             },
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
+    }
+
+    // 国内折扣商品列表
+    function getinlanddiscount( callback ) {
+        var url1 = Route.baseUrl + 'getinlanddiscount';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 国内折扣商品详情
+    function getdiscountproduct( productid, callback ) {
+        var url1 = Route.baseUrl + 'getdiscountproduct';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                productid: productid
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
     }
 
 

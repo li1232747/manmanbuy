@@ -73,7 +73,7 @@
 
         <div class="pic">
             {{@result[0].productImgLg}}
-            {{@result[0].productCity}}
+            {{@(result[0].productCity ? result[0].productCity : '') }}
         </div>
 
         <div class="more">

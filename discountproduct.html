@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买-国内折扣</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/discountproduct.css">
+</head>
+
+<body>
+    <!-- 项目容器 -->
+    <div class="container">
+        <div id="top" class="clearfix">
+            <a href="javascript:history.go(-1);" class="left">
+                <img src="./images/back.png" alt="">
+            </a>
+            <h4>国内折扣-详情</h4>
+            <a href="javascript:;" class="right">
+                <img src="./images/header_app.png" alt="">
+            </a>
+        </div>
+
+        <ul id="main">
+            <!-- 挖个大坑 -->
+        </ul>
+
+        <div id="footer">
+            <div class="clearfix">
+                <a href="javascript:;">登录</a>
+                <a href="javascript:;">注册</a>
+                <a href="#">
+                    <img src="./images/top.jpg" alt="">
+                    返回顶部
+                </a>
+            </div>
+            <div>
+                <p>
+                    <span>手机APP下载</span>
+                    <span>慢慢买手机版</span>
+                    <span>--掌上比价平台</span>
+                </p>
+                <span>m.manmanbuy.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 商品 模板 -->
+    <script type="text/html" id="tpl">
+            <h3>{{result[0].productName}}</h3>
+    
+            <div class="subhead">
+                <span>{{result[0].productFrom}}</span>
+                <span>{{result[0].productTime}}</span>
+                <span>{{result[0].productTips}}</span>
+            </div>
+    
+            <div class="info clearfix">
+                <div class="left">
+                    {{result[0].productInfo}}
+                </div>
+                <div class="right">
+                    {{@result[0].productImg}}
+                </div>
+            </div>
+    
+            <p>{{result[0].productInfo1}}</p>
+    
+            <div class="pic">
+                {{@result[0].productImg}}
+                {{@(result[0].productCity ? result[0].productCity : '') }}
+            </div>
+    
+            <div class="more">
+                <a href="moneyctrl.html">前往购买</a>
+            </div>
+    
+            <div class="message">
+                <img src="./images/mmbweixin2.png" alt="">
+            </div>
+    
+            <div class="publish">
+                <h4>发表评论</h4>
+                <form>
+                    <textarea rows="10"></textarea>
+                    <p>
+                        <span>发表评论</span>
+                    </p>
+                </form>
+            </div>
+    
+            <div class="new">
+                <span>最新评论</span>
+                <ul>
+                    <li>
+                        <img src="./images/discount.jpg" alt="" class="left">
+                        <div>
+                            <p class="clearfix">
+                                <span class="left">赶鸭子上架</span>
+                                <span class="right">2016/12/11</span>
+                            </p>
+                            <p>比超市便宜了几块</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </script>
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/route.js"></script>
+    <script src="./js/common/tools.js"></script>
+    <script>
+        $( function() {
+            // 获取折扣商品详情
+            var productid = tools.getSearch('productid');
+            Route.getdiscountproduct(productid, function (info) {
+                console.log(info);
+                // console.log( info.result[ 0 ].productCity );
+                $('#main').html(template('tpl', info));
+            });
+        } );
+    </script>
+</body>
+
+</html>
