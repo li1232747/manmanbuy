@@ -24,6 +24,12 @@
 
         // 获取商品评论
         getproductcom: getproductcom,
+
+        // 获取省钱控商品列表
+        getmoneyctrl: getmoneyctrl,
+
+        // 获取折扣商品详情
+        getmoneyctrlproduct: getmoneyctrlproduct,
     };
 
 
@@ -126,6 +132,38 @@
             url: url1,
             data: {
                 productid: productid,
+            },
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 省钱控商品列表
+    function getmoneyctrl( pageid, callback ) {
+        var url1 = Route.baseUrl + 'getmoneyctrl';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                pageid: pageid,
+            },
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 折扣商品详情
+    function getmoneyctrlproduct(productid , callback) {
+        var url1 = Route.baseUrl + 'getmoneyctrlproduct';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                productid : productid ,
             },
             dataType: 'json',
             success: function (info) {

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买-省钱控</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/moneyctrl.css">
+</head>
+
+<body>
+    <!-- 项目容器 -->
+    <div class="container">
+        <div id="top" class="clearfix">
+            <a href="javascript:history.go(-1);" class="left">
+                <img src="./images/back.png" alt="">
+            </a>
+            <h4>省钱控 - 最新优惠</h4>
+            <a href="javascript:;" class="right">
+                <img src="./images/header_app.png" alt="">
+            </a>
+        </div>
+
+        <!-- 商品详情 -->
+        <div id="product">
+            <ul>
+                <!-- 坑1 -->
+            </ul>
+
+            <div class="clearfix">
+                <a href="javascript:;" class="left page_up">上一页</a>
+                <select>
+                    <!-- 坑2 -->
+                </select>
+                <a href="javascript:;" class="right page_down">下一页</a>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="clearfix">
+                <a href="javascript:;">登录</a>
+                <a href="javascript:;">注册</a>
+                <a href="#">
+                    <img src="./images/top.jpg" alt="">
+                    返回顶部
+                </a>
+            </div>
+            <div>
+                <p>
+                    <span>手机APP下载</span>
+                    <span>慢慢买手机版</span>
+                    <span>--掌上比价平台</span>
+                </p>
+                <span>m.manmanbuy.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 商品 模板 -->
+    <script type="text/html" id="tpl1">
+        {{each result v i}}
+        <li>
+            <div class="left">
+                {{@v.productImgSm}}
+            </div>
+            <div>
+                <p>
+                    <a href="moneyctrlProduct.html?productid={{v.productId}}">{{v.productName}}</a>
+                    <span>{{v.productPinkage}}</span>
+                </p>
+                <p>
+                    <span>{{v.productFrom}} |
+                        <i>{{v.productTime}}</i>
+                    </span>
+                    <span class="right">{{v.productComCount}}</span>
+                </p>
+            </div>
+        </li>
+        {{ /each }}
+    </script>
+
+    <script type="text/html" id="tpl2">
+        <% for (var i=1;i<=page;i++) { %>
+            <option>
+                <%= i %>/
+                    <%= page %>
+            </option>
+            <% } %>
+    </script>
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/route.js"></script>
+    <script src="./js/common/tools.js"></script>
+    <script>
+        $( function() {
+            // 获取商品列表
+            var pageid = 1;
+            // 总页数
+            var page = 1;
+
+            Route.getmoneyctrl( pageid, function( info ) {
+                console.log( info );
+
+                $( '#product ul' ).html( template( 'tpl1', info ) );
+                page = Math.ceil( info.totalCount / 10 );
+
+                $( 'select' ).html( template( 'tpl2', {
+                    page: page
+                } ) );
+
+                $( 'select' ).on( 'change', function() {
+                    var res = $( 'select' ).find( 'option:selected' ).text().slice( 0, 1 );
+                    // console.log(res);
+                    pageid = res;
+                    //重新渲染
+                    Route.getmoneyctrl( pageid, function( info ) {
+
+                        $( '#product ul' ).html( template( 'tpl1', info ) );
+
+                    } );
+                } );
+            } );
+
+
+            // 给上下页注册点击事件
+            $('.page_up').on('click', function () {
+                if (pageid <= 1) {
+                    return false;
+                }
+                pageid--;
+                // 重新获取列表商品
+                Route.getmoneyctrl( pageid, function (info) {
+
+                    $('#product ul').html(template('tpl1', info));
+
+                });
+                $('select').find('option:selected').prop('selected', false).prev().prop('selected', true);
+            });
+
+            $('.page_down').on('click', function () {
+                if (pageid >= page) {
+                    return false;
+                }
+                pageid++;
+                // 重新获取列表商品
+                Route.getmoneyctrl( pageid, function (info) {
+
+                    $('#product ul').html(template('tpl1', info));
+
+                });
+                $('select').find('option:selected').prop('selected', false).next().prop('selected', true);
+            });
+
+        } );
+    </script>
+</body>
+
+</html>
