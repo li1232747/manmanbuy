@@ -18,6 +18,12 @@
 
         // 获取分类列表
         getproductlist: getproductlist,
+
+        // 获取商品详情
+        getproduct: getproduct,
+
+        // 获取商品评论
+        getproductcom: getproductcom,
     };
 
 
@@ -88,6 +94,38 @@
             data: {
                 categoryid: categoryid,
                 pageid: pageid
+            },
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 获取商品详细信息
+    function getproduct(productid , callback) {
+        var url1 = Route.baseUrl + 'getproduct';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                productid: productid ,
+            },
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 获取商品评论
+    function getproductcom(productid, callback) {
+        var url1 = Route.baseUrl + 'getproductcom';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                productid: productid,
             },
             dataType: 'json',
             success: function (info) {

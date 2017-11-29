@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买-商品详情</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/product.css">
+</head>
+
+<body>
+    <!-- 项目容器 -->
+    <div class="container">
+        <div id="header">
+            <img src="./images/header_logo.png" alt="">
+            <img src="./images/header_app.png" alt="">
+        </div>
+
+        <!-- 搜索框 版块 -->
+        <div id="search" class="clearfix">
+            <input type="text" placeholder="请输入你想比价的商品">
+            <a href="#">搜索</a>
+        </div>
+
+        <!-- 导航条 -->
+        <div id="nav" class="clearfix">
+            <div class="left">
+                <a href="index.html">首页</a> >
+                <a href="category.html">全部分类</a> >
+                <!-- 挖个小坑 -->
+            </div>
+            <a href="javascript:;" class="right">筛选</a>
+        </div>
+
+        <!-- 商品详情 -->
+        <div id="main">
+            <div class="main_top">
+                <!-- 坑2 -->
+            </div>
+            <div class="main_bottom">
+                <!-- 坑3 -->
+            </div>
+
+            <div class="pro_more">
+                <a href="javascript:;">查看更多评价</a>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="clearfix">
+                <a href="javascript:;">登录</a>
+                <a href="javascript:;">注册</a>
+                <a href="#">
+                    <img src="./images/top.jpg" alt="">
+                    返回顶部
+                </a>
+            </div>
+            <div>
+                <p>
+                    <span>手机APP下载</span>
+                    <span>慢慢买手机版</span>
+                    <span>--掌上比价平台</span>
+                </p>
+                <span>m.manmanbuy.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航 模板 -->
+    <script type="text/html" id="tpl1">
+        <a href="javascript:history.go(-1);">{{result[0].category}}</a>
+    </script>
+
+    <!-- 商品信息 模板 -->
+    <script type="text/html" id="tpl2">
+        <div class="pro_title">
+            {{result[0].productName}}
+        </div>
+        <div class="proImg_box">
+            {{@result[0].productImg}}
+        </div>
+        <div class="pro_nav clearfix">
+            <span>比价购买</span>
+            <span>产品参数</span>
+            <span>评论(2322)</span>
+        </div>
+        <div class="pro_info clearfix">
+            <div class="left">
+                <img src="./images/slogo.png" alt="">
+                <span>京东商城</span>
+            </div>
+            <div class="right">
+                <span>&yen;1999.00</span>
+                <span>去购买</span>
+            </div>
+        </div>
+        <div class="pro_other">
+            * 实际价格以各网站列出的实时售价为准，我们提供的价格可能有数小时至数日的延迟。
+        </div>
+    </script>
+
+    <!-- 商品评论 模板 -->
+    <script type="text/html" id="tpl3">
+        <div class="pro_appraise">
+            <p>网友评论</p>
+            <ul>
+                {{each result v i}}
+                <li>
+                    <div class="app_title clearfix">
+                        <div class="left">{{v.comName}}</div>
+                        <div class="right">
+                            <p>{{v.comTime}}</p>
+                            <p>{{v.comFrom}}</p>
+                        </div>
+                    </div>
+                    <div class="app_body">
+                        {{v.comContent}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </script>
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/route.js"></script>
+    <script src="./js/common/tools.js"></script>
+    <script>
+        $( function() {
+            // 获取分类id 下的 分类产品
+            var categoryid = tools.getSearch( 'categoryid' );
+            Route.getcategorybyid( categoryid, function( info ) {
+                // console.log( info );
+                $( '#nav .left' ).append( template( 'tpl1', info ) );
+            } );
+
+
+            // 获取商品详情
+            var productid = tools.getSearch( 'productid' );
+            Route.getproduct( productid, function( info ) {
+                // console.log( info );
+                $( '.main_top' ).html( template( 'tpl2', info ) );
+            } );
+
+
+            // 获取商品评论
+            Route.getproductcom( productid, function( info ) {
+                // console.log( info );
+                $('.main_bottom').html(template('tpl3', info));
+            } );
+        } );
+    </script>
+</body>
+
+</html>

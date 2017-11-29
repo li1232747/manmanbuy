@@ -85,7 +85,7 @@
             </div>
             <div>
                 <p>
-                    <a href="product.html?productid={{v.productId}}">{{v.productName}}</a>
+                    <a href="product.html?productid={{v.productId}}&categoryid={{v.categoryId}}">{{v.productName}}</a>
                 </p>
                 <p>{{v.productPrice}}</p>
                 <p>
@@ -123,7 +123,7 @@
             // 总页数
             var page = 1;
             Route.getproductlist( categoryid, pageid, function( info ) {
-                // console.log( info );
+                console.log( info );
                 $( '#product ul' ).html( template( 'tpl2', info ) );
 
                 // 总页数
