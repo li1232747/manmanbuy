@@ -25,10 +25,30 @@
             <a href="#">搜索</a>
         </div>
 
-        <div id="main">
+        <!-- 导航条 -->
+        <div id="nav" class="clearfix">
+            <div class="left">
+                <a href="index.html">首页</a> >
+                <a href="category.html">全部分类</a> >
+                <!-- 挖个小坑 -->
+            </div>
+            <a href="javascript:;" class="right">筛选</a>
+        </div>
+
+        <!-- 商品详情 -->
+        <div id="product">
             <ul>
                 <!-- 挖个大坑 -->
             </ul>
+
+
+            <div class="clearfix">
+                <a href="javascript:;" class="left page_up">上一页</a>
+                <select>
+                    <!-- 挖个小坑 -->
+                </select>
+                <a href="javascript:;" class="right page_down">下一页</a>
+            </div>
         </div>
 
         <div id="footer">
@@ -51,23 +71,107 @@
         </div>
     </div>
 
-    <!-- 分类标题 模板 -->
+    <!-- 导航 模板 -->
     <script type="text/html" id="tpl1">
-
+        <a href="#">{{result[0].category}}</a>
     </script>
 
-    <!-- 分类列表 模板 -->
+    <!-- 商品 模板 -->
     <script type="text/html" id="tpl2">
-
+        {{each result v i}}
+        <li>
+            <div class="left">
+                {{@v.productImg}}
+            </div>
+            <div>
+                <p>
+                    <a href="product.html?productid={{v.productId}}">{{v.productName}}</a>
+                </p>
+                <p>{{v.productPrice}}</p>
+                <p>
+                    <span>{{v.productQuote}}</span>
+                    <span>{{v.productCom}}</span>
+                </p>
+            </div>
+        </li>
+        {{/each}}
     </script>
 
+    <!-- 下拉框 模板 -->
+    <script type="text/html" id="tpl3">
+        <% for (var i=1;i<=page;i++) { %>
+        <option><%= i %>/<%= page %></option>
+        <% } %>
+    </script>
 
     <script src="./lib/jquery/jquery.min.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
-    <script src="./js/common/route.js"></script>
     <script src="./js/common/common.js"></script>
+    <script src="./js/common/route.js"></script>
+    <script src="./js/common/tools.js"></script>
     <script>
+        $( function() {
+            // 获取分类id 下的 分类产品
+            var categoryid = tools.getSearch( 'categoryid' );
+            Route.getcategorybyid( categoryid, function( info ) {
+                // console.log(info);
+                $( '#nav .left' ).append( template( 'tpl1', info ) );
+            } );
 
+            // 获取商品列表
+            var pageid = 1;
+            // 总页数
+            var page = 1;
+            Route.getproductlist( categoryid, pageid, function( info ) {
+                // console.log( info );
+                $( '#product ul' ).html( template( 'tpl2', info ) );
+
+                // 总页数
+                page = Math.ceil( info.totalCount / 10 );
+
+                $('select').html( template( 'tpl3',{ page: page } ) );
+
+                $('select').on('change', function(){
+                    var res = $('select').find('option:selected').text().slice(0,1);
+                    // console.log(res);
+                    pageid = res;
+                    //重新渲染
+                    Route.getproductlist(categoryid, pageid, function (info) {
+
+                        $('#product ul').html(template('tpl2', info));
+
+                    });
+                });
+            } );
+            
+            // 给上下页注册点击事件
+            $( '.page_up' ).on( 'click', function() {
+                if( pageid <=1 ){
+                    return false;
+                }
+                pageid --;
+                // 重新获取列表商品
+                Route.getproductlist(categoryid, pageid, function (info) {
+                    
+                    $('#product ul').html(template('tpl2', info));
+
+                });
+                $('select').find('option:selected').prop('selected',false).prev().prop('selected', true);
+            } );
+            $( '.page_down' ).on( 'click', function() {
+                if (pageid >= page) {
+                    return false;
+                }
+                pageid++;
+                // 重新获取列表商品
+                Route.getproductlist(categoryid, pageid, function (info) {
+
+                    $('#product ul').html(template('tpl2', info));
+
+                });
+                $('select').find('option:selected').prop('selected', false).next().prop('selected', true);
+            } );
+        } );
     </script>
 </body>
 

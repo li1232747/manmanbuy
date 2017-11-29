@@ -12,6 +12,12 @@
 
         // 获取分类列表
         getcategory: getcategory,
+
+        // 获取分类名称
+        getcategorybyid: getcategorybyid,
+
+        // 获取分类列表
+        getproductlist: getproductlist,
     };
 
 
@@ -57,6 +63,38 @@
         } );
     }
 
+    // 获取分类名称
+    function getcategorybyid( categoryid, callback ) {
+        var url1 = Route.baseUrl + 'getcategorybyid';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                categoryid: categoryid
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 获取商品列表
+    function getproductlist(categoryid, pageid, callback) {
+        var url1 = Route.baseUrl + 'getproductlist';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                categoryid: categoryid,
+                pageid: pageid
+            },
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
 
 
 

@@ -1,0 +1,72 @@
+body {
+    background-color: #fff;
+}
+
+/* 导航条 */
+#nav {
+    font-size: 0.25925925925925924rem;
+    padding: 0.09259259259259259rem 0.37037037037037035rem;
+    height: 0.6851851851851852rem;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to bottom, #fdfdfd,#ccc);
+    >a {
+        border: 1px solid #999;
+        height: 0.48148148148148145rem;
+        width: 1.1111111111111112rem;
+        padding-top: 0.037037037037037035rem;
+        text-align: center;
+        color: #666;
+    }
+}
+
+/* 商品 */
+#product {
+    background-color: #fff;
+    li {
+        height: 2.2222222222222223rem;
+        border: 1px solid #ccc;
+        >div {
+            padding: 0.18518518518518517rem;
+            &:first-of-type {
+                >img {
+                    display: block;
+                    width: 1.6666666666666667rem;
+                    height: 1.6666666666666667rem;
+                }
+            }
+            &:last-of-type {
+                overflow: hidden;
+                >p {
+                    &:nth-of-type(1) {
+                        font-size: 0.2962962962962963rem;
+                        height: 0.7407407407407407rem;
+                    }
+                    &:nth-of-type(2) {
+                        color: red;
+                        font-size: 0.2962962962962963rem;
+                        margin: 0.18518518518518517rem 0;
+                    }
+                    &:nth-of-type(3) {
+                        font-size: 0.2222222222222222rem;
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+
+    >div {
+        padding: 10px 30px;
+        font-size: 14px;
+        text-align: center;
+        >a {
+            background-color: #ccc;
+            padding: 10px 40px;
+        }
+        >select {
+            padding: 10px;
+            text-align: center;
+        }
+    }
+}
