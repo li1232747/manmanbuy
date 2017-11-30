@@ -42,6 +42,12 @@
 
         // 获取白菜价商品列表
         getbaicaijiaproduct: getbaicaijiaproduct,
+
+        // 获取优惠券标题
+        getcoupon: getcoupon,
+
+        // 获取优惠券列表
+        getcouponproduct: getcouponproduct,
     };
 
 
@@ -242,6 +248,34 @@
         } );
     }
 
+    // 优惠券标题
+    function getcoupon(callback) {
+        var url1 = Route.baseUrl + 'getcoupon';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 优惠券列表
+    function getcouponproduct(couponid, callback) {
+        var url1 = Route.baseUrl + 'getcouponproduct';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                couponid: couponid
+            },
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
 
     // 暴露给全局
     window.Route = Route;
