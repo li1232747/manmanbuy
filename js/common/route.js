@@ -36,6 +36,12 @@
 
         // 获取国内折扣商品详情
         getdiscountproduct: getdiscountproduct,
+
+        // 获取白菜价标题
+        getbaicaijiatitle: getbaicaijiatitle,
+
+        // 获取白菜价商品列表
+        getbaicaijiaproduct: getbaicaijiaproduct,
     };
 
 
@@ -207,6 +213,34 @@
         } );
     }
 
+    // 白菜价标题
+    function getbaicaijiatitle( callback ) {
+        var url1 = Route.baseUrl + 'getbaicaijiatitle';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 国内折扣商品详情
+    function getbaicaijiaproduct( titleid, callback ) {
+        var url1 = Route.baseUrl + 'getbaicaijiaproduct';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                titleid: titleid
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
 
 
     // 暴露给全局

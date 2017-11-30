@@ -64,7 +64,7 @@
         {{each result v i}}
         <li>
             <div class="left">
-                {{@v.productImgSm}}
+                {{@(v.productImgSm ? v.productImgSm : '')}}
             </div>
             <div>
                 <p>

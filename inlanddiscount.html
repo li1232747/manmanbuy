@@ -51,7 +51,7 @@
     <script type="text/html" id="tpl">
         {{each result v i}}
         <li>
-            {{@v.productImg}}
+            {{@(v.productImg ? v.productImg : '')}}
             <p><a href="discountproduct.html?productid={{v.productId}}">{{v.productName}}</a></p>
             <p>{{v.productPrice}}</p>
             <p>

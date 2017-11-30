@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>慢慢买-白菜价</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/baicaijia.css">
+</head>
+
+<body>
+    <!-- 项目容器 -->
+    <div class="container">
+        <div id="top" class="clearfix">
+            <a href="javascript:history.go(-1);" class="left">
+                <img src="./images/back.png" alt="">
+            </a>
+            <h4>白菜价 - 淘宝内部券</h4>
+            <a href="javascript:;" class="right">
+                <img src="./images/header_app.png" alt="">
+            </a>
+        </div>
+
+        <!-- 导航条 -->
+        <div id="nav">
+            <div class="topbar">
+                <ul class="clearfix">
+                    <!-- 坑1 -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- 商品内容 -->
+        <div id="taobao">
+            <ul>
+                <!-- 坑2 -->
+            </ul>
+        </div>
+
+        <div id="footer">
+            <div class="clearfix">
+                <a href="javascript:;">登录</a>
+                <a href="javascript:;">注册</a>
+                <a href="#">
+                    <img src="./images/top.jpg" alt="">
+                    返回顶部
+                </a>
+            </div>
+            <div>
+                <p>
+                    <span>手机APP下载</span>
+                    <span>慢慢买手机版</span>
+                    <span>--掌上比价平台</span>
+                </p>
+                <span>m.manmanbuy.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 标题 模板 -->
+    <script type="text/html" id="tpl1">
+        {{each result v i}}
+        <li>
+            <a data-titleid="{{v.titleId}}" href="javascript:;" class="{{ i ===0 ? 'active' : ''}}">{{v.title}}</a>
+        </li>
+        {{/each}}
+    </script>
+
+    <!-- 商品 模板 -->
+    <script type="text/html" id="tpl2">
+        {{each result v i}}
+        <li>
+            <div class="left">
+                {{@(v.productImg ? v.productImg : '')}}
+            </div>
+            <div>
+                <p>
+                    {{@v.productName}}
+                </p>
+                <p>
+                    {{@v.productPrice}}
+                </p>
+                {{@v.productCouponRemain}}
+                <div class="clearfix bottom">
+                    <div class="left">
+                        {{@v.productCoupon}}
+                    </div>
+                    <div class="right">
+                        {{@v.productHref}}
+                    </div>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+
+
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./js/common/common.js"></script>
+    <script src="./js/common/route.js"></script>
+    <script src="./js/common/tools.js"></script>
+    <script>
+        $( function() {
+            // 获取标题
+            Route.getbaicaijiatitle( function( info ) {
+                // console.log( info );
+                $( '.topbar ul' ).html( template( 'tpl1', info ) );
+
+                // 标题滑动功能
+                topUl = $( '.topbar ul' )[ 0 ];
+                var startX = moveX = instanceX = currentX = 0;
+
+                // ul宽度
+                var ulWidth = 10;
+                // 获取每个li的宽度
+                $( '.topbar li' ).each( function( index, ele ) {
+                    ulWidth += $( ele ).innerWidth();
+                } );
+                //  设置给ul宽度
+                $( '.topbar ul' ).width( ulWidth );
+                var topbarWidth = $( '.topbar' )[ 0 ].offsetWidth; // 父元素宽度
+
+                var maxPosition = 0; // 最大位移值
+                var minPosition = topbarWidth - ulWidth; // 最小位移值
+                var maxSlide = maxPosition + 100; // 最大滑动值
+                var minSlide = minPosition - 100; // 最小滑动值
+
+                // 给topbar ul注册滑动开始事件
+                topUl.addEventListener( 'touchstart', function( e ) {
+                    // 获取开始x的坐标
+                    startX = e.touches[ 0 ].clientX;
+                } );
+
+                // 给topbar ul注册滑动中事件
+                topUl.addEventListener( 'touchmove', function( e ) {
+                    e.preventDefault(); // 阻止滑动页面时滑动屏幕
+                    // 获取移动中的x坐标
+                    moveX = e.touches[ 0 ].clientX;
+                    // 获取移动距离
+                    instanceX = moveX - startX;
+
+                    // 判断滑动距离是否在最大值和最小值之间
+                    if ( ( instanceX + currentX ) <= maxSlide && ( instanceX + currentX ) >= minSlide ) {
+                        // 移动ul
+                        topUl.style.transform = "translateX(" + ( instanceX + currentX ) + "px)";
+                        topUl.style.transition = "none";
+                    }
+                } );
+
+                // 给topbar ul注册滑动结束事件
+                topUl.addEventListener( 'touchend', function( e ) {
+                    // 储存移动的距离
+                    currentX += instanceX;
+
+                    // 判断当前滑动值
+                    if ( currentX > maxPosition ) {
+                        currentX = maxPosition;
+                        // 设置位移到最大位移值
+                        topUl.style.transform = "translateX(" + currentX + "px)";
+                        topUl.style.transition = "all 0.3s";
+                    }
+                    if ( currentX < minPosition ) {
+                        currentX = minPosition;
+                        // 设置位移到最大位移值
+                        topUl.style.transform = "translateX(" + currentX + "px)";
+                        topUl.style.transition = "all 0.3s";
+                    }
+                } );
+            } );
+
+            // 给标题里每个a标签注册点击事件
+            $( '.topbar ul' ).on( 'click', 'a', function( e ) {
+                // 阻止事件冒泡
+                e.stopPropagation();
+                $( this ).addClass( 'active' ).parent().siblings().find( 'a' ).removeClass( 'active' );
+                // 根据选中显示对应的商品列表
+                titleid = $( this ).data( 'titleid' );
+                
+                // 重新渲染
+                render();
+            } );
+
+            var titleid = 0;
+            // 获取商品列表
+            function render() {
+                Route.getbaicaijiaproduct( titleid, function( info ) {
+                    console.log( info );
+                    $( '#taobao ul' ).html( template( 'tpl2', info ) );
+
+                    // 设置进度条宽度
+                    $( '.bar span' ).each( function( index, ele ) {
+                        ele.style.width = $( this ).text();
+                    } );
+
+                } );
+            }
+
+            render();
+        } );
+    </script>
+</body>
+
+</html>
