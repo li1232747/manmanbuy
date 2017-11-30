@@ -48,6 +48,12 @@
 
         // 获取优惠券列表
         getcouponproduct: getcouponproduct,
+
+        // 获取商场导航
+        getsitenav: getsitenav,
+
+        // 获取品牌标题
+        getbrandtitle: getbrandtitle,
     };
 
 
@@ -249,27 +255,53 @@
     }
 
     // 优惠券标题
-    function getcoupon(callback) {
+    function getcoupon( callback ) {
         var url1 = Route.baseUrl + 'getcoupon';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
     }
 
     // 优惠券列表
-    function getcouponproduct(couponid, callback) {
+    function getcouponproduct( couponid, callback ) {
         var url1 = Route.baseUrl + 'getcouponproduct';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             data: {
                 couponid: couponid
             },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 商城导航
+    function getsitenav( callback ) {
+        var url1 = Route.baseUrl + 'getsitenav';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 品牌标题
+    function getbrandtitle(callback) {
+        var url1 = Route.baseUrl + 'getbrandtitle';
+        $.ajax({
+            type: 'get',
+            url: url1,
             dataType: 'json',
             success: function (info) {
                 callback && callback(info);

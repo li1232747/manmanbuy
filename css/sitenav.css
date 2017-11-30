@@ -1,0 +1,40 @@
+#top {
+  background-color: #ff841d;
+  position: absolute;
+  top: 0;
+  height: 0.9259259259259259rem;
+  line-height: 0.9259259259259259rem;
+  width: 100%;
+}
+#top .left > img {
+  position: absolute;
+  top: 0.18518518518518517rem;
+  left: 0.37037037037037035rem;
+  width: 0.5555555555555556rem;
+  height: 0.5555555555555556rem;
+}
+#top > h4 {
+  font-size: 0.4444444444444444rem;
+  color: #fff;
+  text-align: center;
+}
+#top .right > img {
+  position: absolute;
+  width: 0.6296296296296297rem;
+  height: 0.6296296296296297rem;
+  top: 0.18518518518518517rem;
+  right: 0.37037037037037035rem;
+}
+#main {
+  padding: 0.37037037037037035rem 1.8518518518518519rem;
+  background-color: #fff;
+}
+#main > li {
+  float: left;
+  border: 1px solid #999;
+  font-size: 0.37037037037037035rem;
+  padding: 0.18518518518518517rem;
+  margin-right: 0.18518518518518517rem;
+  margin-bottom: 0.18518518518518517rem;
+  background-color: #f4f4f4;
+}

@@ -1,0 +1,57 @@
+#main {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding-bottom: 0.18518518518518517rem;
+}
+#main > p {
+  font-size: 0.2962962962962963rem;
+  padding: 0.18518518518518517rem;
+  margin: 0.18518518518518517rem 0.09259259259259259rem;
+  border: 1px solid #cccccc;
+  background-color: #eee;
+  color: goldenrod;
+}
+#main > ul > li {
+  line-height: 0.7407407407407407rem;
+  background-color: #ededed;
+}
+#main > ul > li .cate_title {
+  border-bottom: 1px solid #ccc;
+  padding: 0 0.37037037037037035rem;
+  font-size: 0.3333333333333333rem;
+  font-weight: 700;
+}
+#main > ul > li > ul {
+  background-color: #f9f9f9;
+}
+#main > ul > li > ul > li {
+  text-align: center;
+  float: left;
+  color: #333;
+  width: 33.33%;
+  font-size: 0.25925925925925924rem;
+  height: 0.7407407407407407rem;
+  line-height: 0.7407407407407407rem;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+#main > ul > li > ul > li:nth-of-type(3n) {
+  border-right: none;
+}
+/* 导航条 */
+#nav {
+  font-size: 0.25925925925925924rem;
+  padding: 0.09259259259259259rem 0.37037037037037035rem;
+  height: 0.6851851851851852rem;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: linear-gradient(to bottom, #fdfdfd, #ccc);
+}
+#nav > a {
+  border: 1px solid #999;
+  height: 0.48148148148148145rem;
+  width: 1.1111111111111112rem;
+  padding-top: 0.037037037037037035rem;
+  text-align: center;
+  color: #666;
+}
