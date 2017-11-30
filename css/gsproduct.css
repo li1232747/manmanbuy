@@ -30,7 +30,7 @@
   position: relative;
   padding-right: 0.8333333333333334rem;
   height: 0.7407407407407407rem;
-  font-size: 0.3333333333333333rem;
+  font-size: 0.2962962962962963rem;
 }
 #nav .title {
   border-right: 1px solid #ccc;
@@ -40,6 +40,9 @@
   float: left;
   width: 33.33%;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #nav .title > li.active {
   font-weight: 700;
@@ -69,7 +72,7 @@
 #product > ul > li {
   float: left;
   width: 50%;
-  height: 4.814814814814815rem;
+  height: 5.555555555555555rem;
   padding: 0.18518518518518517rem;
   border: 0.09259259259259259rem solid #ccc;
   background-color: #fff;
@@ -81,15 +84,18 @@
   margin: 0 auto;
 }
 #product > ul > li > p {
-  font-size: 16px;
+  font-size: 0.2962962962962963rem;
 }
 #product > ul > li > p:first-of-type {
   text-align: center;
-  line-height: 0.37037037037037035rem;
+  line-height: 0.5555555555555556rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+#product > ul > li > p:last-of-type {
+  margin-top: 0.09259259259259259rem;
 }
 #product > ul > li > p:last-of-type .left {
   color: #f55f52;
