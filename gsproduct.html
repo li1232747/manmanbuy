@@ -24,9 +24,39 @@
             </a>
         </div>
 
-        <ul id="main">
-            
-        </ul>
+        <div id="nav">
+            <ul class="clearfix title">
+                <li>
+                    <a href="javascript:;">京东</a>
+                </li>
+                <li>
+                    <a href="javascript:;">华北</a>
+                </li>
+                <li>
+                    <a href="javascript:;">全部价格</a>
+                </li>
+            </ul>
+            <div class="body">
+                <ul style="display:none" class="shop">
+                    <!-- 坑1 -->
+                </ul>
+                <ul style="display:none" class="address">
+                    <!-- 坑2 -->
+                </ul>
+                <ul style="display:none">
+                    <li><a href="#">没做</a></li>
+                    <li><a href="#">不会做</a></li>
+                    <li><a href="#">唉唉唉ε=(´ο｀*)))唉</a></li>
+                </ul>
+            </div>
+            <div class="other"></div>
+        </div>
+
+        <div id="product">
+            <ul class="clearfix">
+                <!-- 坑3 -->
+            </ul>
+        </div>
 
         <div id="footer">
             <div class="clearfix">
@@ -47,8 +77,31 @@
         </div>
     </div>
 
-    <script type="text/html" id="tpl">
-        
+    <script type="text/html" id="tpl1">
+        {{each result v i}}
+        <li data-shopid="{{v.shopId}}"><a href="#">{{v.shopName}}</a></li>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="tpl2">
+        {{each result v i}}
+        <li data-areaid="{{v.areaId}}"><a href="#">{{v.areaName}}</a></li>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="tpl3">
+        {{each result v i}}
+        <li>
+            <div>
+                <img src="{{v.productImg}}" alt="">
+            </div>
+            <p>{{v.productName}}</p>
+            <p class="clearfix">
+                <span class="left">{{v.productPrice}}</span>
+                <span class="right">去凑单</span>
+            </p>
+        </li>
+        {{/each}}
     </script>
 
 
@@ -58,9 +111,66 @@
     <script src="./js/common/route.js"></script>
     <script src="./js/common/tools.js"></script>
     <script>
-        $(function () {
-            
-        });
+        $( function() {
+            // 获取店铺信息
+            Route.getgs( 'getgsshop', function( info ) {
+                // console.log( info );
+                $( '.shop' ).html( template( 'tpl1', info ) );
+
+                $('.title li:eq(0)').text( $('.shop li:eq(0)').text() );
+            } );
+
+            // 获取地区信息
+            Route.getgs( 'getgsshoparea', function( info ) {
+                // console.log( info );
+                $( '.address' ).html( template( 'tpl2', info ) );
+
+                $('.title li:eq(1)').text($('.address li:eq(0)').text());
+            } );
+
+            var areaid = 0;
+            var shopid = 0;
+
+            // 给title里每个li注册点击事件
+            $( '.title li' ).on( 'click', function() {
+                var $this = $( this );
+                var index = $this.index();
+                // 点击显示body对应的ul
+                $this.toggleClass( 'active' ).siblings().removeClass( 'active' );
+                $( '.body ul' ).eq( index ).slideToggle().siblings().slideUp();
+            } );
+
+            // 给body里每个li注册点击事件
+            $( '.body ul:eq(0)' ).on( 'click', 'li', function() {
+                $( '.title li' ).eq( 0 ).text( $( this ).text() ).removeClass( 'active' );
+                $( this ).parent().slideUp();
+                // 获取当前的shopid 
+                shopid = $( this ).data( 'shopid' );
+
+                // 重新渲染
+                render();
+            } );
+
+            $( '.body ul:eq(1)' ).on( 'click', 'li', function() {
+                $( '.title li' ).eq( 1 ).text( $( this ).text() ).removeClass( 'active' );
+                $( this ).parent().slideUp();
+                // 获取当前的shopid 
+                areaid = $( this ).data( 'areaid' );
+
+                // 重新渲染
+                render();
+            } );
+
+            function render(){
+                Route.getgsproduct(shopid, areaid, function(info){
+                    console.log(info);
+                    $('#product ul').html( template( 'tpl3', info ) );
+                } );
+            }
+
+            render();
+
+        } );
     </script>
 </body>
 

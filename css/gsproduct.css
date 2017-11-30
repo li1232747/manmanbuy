@@ -25,3 +25,78 @@
   top: 0.18518518518518517rem;
   right: 0.37037037037037035rem;
 }
+#nav {
+  background-color: #fff;
+  position: relative;
+  padding-right: 0.8333333333333334rem;
+  height: 0.7407407407407407rem;
+  font-size: 0.3333333333333333rem;
+}
+#nav .title {
+  border-right: 1px solid #ccc;
+}
+#nav .title > li {
+  line-height: 0.7407407407407407rem;
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+#nav .title > li.active {
+  font-weight: 700;
+}
+#nav .body {
+  position: absolute;
+  width: 100%;
+  top: 0.8333333333333334rem;
+}
+#nav .body li {
+  height: 0.7407407407407407rem;
+  line-height: 0.7407407407407407rem;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+  padding: 0 0.18518518518518517rem;
+}
+#nav .other {
+  background-color: pink;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.8333333333333334rem;
+  height: 0.7407407407407407rem;
+  background: url('../images/icon_bar.png') 0 -0.83333333rem;
+  background-size: 4.074074074074074rem 2.4444444444444446rem;
+}
+#product > ul > li {
+  float: left;
+  width: 50%;
+  height: 4.814814814814815rem;
+  padding: 0.18518518518518517rem;
+  border: 0.09259259259259259rem solid #ccc;
+  background-color: #fff;
+}
+#product > ul > li > div > img {
+  display: block;
+  width: 3.240740740740741rem;
+  height: 2.962962962962963rem;
+  margin: 0 auto;
+}
+#product > ul > li > p {
+  font-size: 16px;
+}
+#product > ul > li > p:first-of-type {
+  text-align: center;
+  line-height: 0.37037037037037035rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+#product > ul > li > p:last-of-type .left {
+  color: #f55f52;
+  padding-top: 0.09259259259259259rem;
+}
+#product > ul > li > p:last-of-type .right {
+  color: #fff;
+  background-color: #ff9501;
+  padding: 0.09259259259259259rem 0.37037037037037035rem;
+}

@@ -75,8 +75,8 @@
 #main .pro_info .right > span:last-of-type {
   float: left;
   padding: 0 0.2777777777777778rem;
-  border-radius: 10px;
-  margin-left: 10px;
+  border-radius: 0.18518518518518517rem;
+  margin-left: 0.18518518518518517rem;
   color: #fff;
   background-color: #ff5500;
 }

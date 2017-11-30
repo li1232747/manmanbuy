@@ -51,15 +51,15 @@ body {
   color: #999;
 }
 #product > div {
-  padding: 10px 30px;
-  font-size: 14px;
+  padding: 0.18518518518518517rem 0.5555555555555556rem;
+  font-size: 0.25925925925925924rem;
   text-align: center;
 }
 #product > div > a {
   background-color: #ccc;
-  padding: 10px 40px;
+  padding: 0.18518518518518517rem 0.7407407407407407rem;
 }
 #product > div > select {
-  padding: 10px;
+  padding: 0.18518518518518517rem;
   text-align: center;
 }

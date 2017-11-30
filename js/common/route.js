@@ -54,6 +54,12 @@
 
         // 获取品牌标题
         getbrandtitle: getbrandtitle,
+
+        // 获取凑单品店铺或者地区信息
+        getgs: getgs,
+
+        // 获取凑单品商品列表
+        getgsproduct: getgsproduct,
     };
 
 
@@ -302,6 +308,36 @@
         $.ajax({
             type: 'get',
             url: url1,
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 凑单品title数据
+    function getgs( url, callback) {
+        var url1 = Route.baseUrl + url;
+        $.ajax({
+            type: 'get',
+            url: url1,
+            dataType: 'json',
+            success: function (info) {
+                callback && callback(info);
+            }
+        });
+    }
+
+    // 凑单品商品列表
+    function getgsproduct(shopid, areaid, callback) {
+        var url1 = Route.baseUrl + 'getgsproduct';
+        $.ajax({
+            type: 'get',
+            url: url1,
+            data: {
+                shopid: shopid,
+                areaid: areaid
+            },
             dataType: 'json',
             success: function (info) {
                 callback && callback(info);
