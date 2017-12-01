@@ -88,18 +88,20 @@
         </li>
         {{/if}}
         {{/each}}
-        <ul style="display: none" class="more_nav">
-            {{each result v i}}
-            {{if i > 7}}
-            <li>
-                <a href="{{v.titlehref}}">
-                    {{@v.img}}
-                    <p>{{v.name}}</p>
-                </a>
-            </li>
-            {{/if}}
-            {{/each}}
-        </ul>
+        <li class="more_nav1">
+            <ul style="display: none" class="more_nav">
+                {{each result v i}}
+                {{if i > 7}}
+                <li>
+                    <a href="{{v.titlehref}}">
+                        {{@v.img}}
+                        <p>{{v.name}}</p>
+                    </a>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </li>
 
     </script>
 

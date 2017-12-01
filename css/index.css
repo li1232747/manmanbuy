@@ -26,6 +26,9 @@
   margin-top: 0.09259259259259259rem;
   color: #000;
 }
+#nav > ul li.more_nav1 {
+  width: 100%;
+}
 /* 折扣推荐 */
 #main .discount {
   width: 100%;

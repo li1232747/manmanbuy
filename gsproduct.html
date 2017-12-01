@@ -137,7 +137,7 @@
                 var index = $this.index();
                 // 点击显示body对应的ul
                 $this.toggleClass( 'active' ).siblings().removeClass( 'active' );
-                $( '.body ul' ).eq( index ).slideToggle().siblings().slideUp();
+                $( '.body ul' ).eq( index ).slideToggle().siblings().hide();
             } );
 
             // 给body里每个li注册点击事件
