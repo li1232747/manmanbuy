@@ -69,7 +69,7 @@
         {{each result v i}}
         <li>
             <div class="cate_title clearfix">
-                <a href="brand.html?brandtitleid={{v.brandTitleId}}">{{v.brandTitle}}</a>
+                <a href="brand.html?brandtitleid={{v.brandTitleId}}&brandTitle={{v.brandTitle.substring(0,v.brandTitle.length-4)}}">{{v.brandTitle}}</a>
             </div>
         </li>
         {{/each}}

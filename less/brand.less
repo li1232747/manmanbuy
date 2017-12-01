@@ -1,0 +1,214 @@
+/* 导航条 */
+#nav {
+    font-size: 0.25925925925925924rem;
+    padding: 0.09259259259259259rem 0.37037037037037035rem;
+    height: 0.6851851851851852rem;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to bottom, #fdfdfd,#ccc);
+}
+
+/* 十大品牌 */
+#brand_rank {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding-bottom: 0.18518518518518517rem;
+    >p {
+        font-size: 0.2962962962962963rem;
+        padding: 0.18518518518518517rem;
+        border: 1px solid #cccccc;
+        background-color: #eee;
+        color: #6d2705;
+        font-weight: 700;
+    }
+    >ul {
+        >li {
+            font-size: 16px;
+            padding: 10px;
+            height: 65px;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            >div {
+                &:first-of-type {
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    margin-top: 10px;
+                    background-color: #c9c9c9;
+                    color: #fff;
+                    text-align: center;
+                }
+                &:nth-of-type(2) {
+                    overflow: hidden;
+                    padding-left: 20px;
+                    >p {
+                        &:nth-of-type(1) {
+                            font-weight: 700;
+                        }
+                        &:nth-of-type(2) {
+                            color: #999;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+                &:last-of-type {
+                    font-size: 40px;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    color: #ccc;
+                    font-family: "宋体";
+                    font-weight: 700;
+                }
+            }
+            &:first-of-type {
+                >div {
+                    &:first-of-type {
+                        background-color: #f10e0e;
+                    }
+                }
+            }
+            &:nth-of-type(2) {
+                >div {
+                    &:first-of-type {
+                        background-color: #ff9501;
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                >div {
+                    &:first-of-type {
+                        background-color: #8adf5b;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 品牌排行商品 */
+#brand_product {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding-bottom: 0.18518518518518517rem;
+    >p {
+        font-size: 0.2962962962962963rem;
+        padding: 0.18518518518518517rem;
+        border: 1px solid #cccccc;
+        background-color: #eee;
+        color: #6d2705;
+        font-weight: 700;
+    }
+    >ul {
+        font-size: 16px;
+        >li {
+            height: 118px;
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            >div {
+                &:first-of-type {
+                    >img {
+                        display: block;
+                        width: 105px;
+                        height: 90px;
+                    }
+                }
+                &:nth-of-type(2) {
+                    overflow: hidden;
+                    padding-left: 20px;
+                    >p {
+                        &:nth-of-type(1) {
+                            font-weight: 700;
+                            line-height: 30px;
+                        }
+                        &:nth-of-type(2) {
+                            color: red;
+                            line-height: 30px;
+                            font-weight: 700;
+                        }
+                        &:nth-of-type(3) {
+                            color: #999;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* 排行商品评论 */
+#brand_comment {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding-bottom: 0.18518518518518517rem;
+    >p {
+        font-size: 0.2962962962962963rem;
+        padding: 0.18518518518518517rem;
+        border: 1px solid #cccccc;
+        background-color: #eee;
+        color: #6d2705;
+        font-weight: 700;
+    }
+    >ul {
+        font-size: 16px;
+        >li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            .top {
+                height: 110px;
+                >div {
+                    &:first-of-type {
+                        >img {
+                            display: block;
+                            width: 105px;
+                            height: 90px;
+                        }
+                    }
+                    &:last-of-type {
+                        overflow: hidden;
+                        font-weight: 700;
+                        padding-left: 20px;
+                        line-height: 40px;
+                        color: #999;
+                    }
+                }
+            }
+            .bottom {
+                position: relative;
+                >div {
+                    background-color: #f8f8f8;
+                    &:first-of-type {
+                        border: 1px solid #ccc;
+                        padding: 10px;
+                        >p {
+                            &:first-child {
+                                line-height: 40px;
+                                .left {
+                                    color: #5b6f1a;
+                                }
+                                .right {
+                                    color: #999;
+                                }
+                            }
+                            &:last-child {
+                                line-height: 30px;
+                            }
+                        }
+                    }
+                    &:last-of-type {
+                        position: absolute;
+                        top: -18px;
+                        left: 40px;
+                        width: 0;
+                        height: 0;
+                        border: 10px solid #ccc;
+                        border-left-color: #fff;
+                        border-right-color: #fff;
+                        border-top-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}

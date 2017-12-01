@@ -60,6 +60,15 @@
 
         // 获取凑单品商品列表
         getgsproduct: getgsproduct,
+
+        // 获取品牌标题对应的十大品牌
+        getbrand: getbrand,
+
+        // 获取品牌销量排行商品列表
+        getbrandproductlist: getbrandproductlist,
+
+        // 获取销量排行商品的评论
+        getproductcom: getproductcom
     };
 
 
@@ -303,35 +312,35 @@
     }
 
     // 品牌标题
-    function getbrandtitle(callback) {
+    function getbrandtitle( callback ) {
         var url1 = Route.baseUrl + 'getbrandtitle';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
     }
 
     // 凑单品title数据
-    function getgs( url, callback) {
+    function getgs( url, callback ) {
         var url1 = Route.baseUrl + url;
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
     }
 
     // 凑单品商品列表
-    function getgsproduct(shopid, areaid, callback) {
+    function getgsproduct( shopid, areaid, callback ) {
         var url1 = Route.baseUrl + 'getgsproduct';
-        $.ajax({
+        $.ajax( {
             type: 'get',
             url: url1,
             data: {
@@ -339,10 +348,59 @@
                 areaid: areaid
             },
             dataType: 'json',
-            success: function (info) {
-                callback && callback(info);
+            success: function( info ) {
+                callback && callback( info );
             }
-        });
+        } );
+    }
+
+    // 品牌标题对应的十大品牌
+    function getbrand( brandtitleid, callback ) {
+        var url1 = Route.baseUrl + 'getbrand';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                brandtitleid: brandtitleid
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 品牌销量排行商品列表
+    function getbrandproductlist( brandtitleid, pagesize, callback ) {
+        var url1 = Route.baseUrl + 'getbrandproductlist';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                brandtitleid: brandtitleid,
+                pagesize: pagesize
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
+    }
+
+    // 销量排行商品的评论
+    function getproductcom( productid, callback ) {
+        var url1 = Route.baseUrl + 'getproductcom';
+        $.ajax( {
+            type: 'get',
+            url: url1,
+            data: {
+                productid: productid
+            },
+            dataType: 'json',
+            success: function( info ) {
+                callback && callback( info );
+            }
+        } );
     }
 
     // 暴露给全局

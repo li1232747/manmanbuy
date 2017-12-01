@@ -45,8 +45,8 @@
                 </ul>
                 <ul style="display:none">
                     <li><a href="#">没做</a></li>
-                    <li><a href="#">不会做</a></li>
-                    <li><a href="#">唉唉唉ε=(´ο｀*)))唉</a></li>
+                    <li><a href="#">不用做</a></li>
+                    <li><a href="#">O(∩_∩)O哈哈~</a></li>
                 </ul>
             </div>
             <div class="other"></div>
@@ -163,7 +163,7 @@
 
             function render(){
                 Route.getgsproduct(shopid, areaid, function(info){
-                    console.log(info);
+                    // console.log(info);
                     $('#product ul').html( template( 'tpl3', info ) );
                 } );
             }
