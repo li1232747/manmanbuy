@@ -170,7 +170,7 @@
                 var productname = info.result[0].productName;
 
                 // 获取销量排行商品的评论
-                Route.getproductcom(productid, function (info) {
+                Route.getproductcom1(productid, function (info) {
                     info.brandtitle = brandtitle;
                     info.productImg = productimg;
                     info.productName = productname;
@@ -186,7 +186,7 @@
                     productimg = $( this ).data( 'productimg' );
                     
                     // 重新渲染销量排行商品的评论
-                    Route.getproductcom(productid, function (info) {
+                    Route.getproductcom1(productid, function (info) {
                         info.brandtitle = brandtitle;
                         info.productImg = productimg;
                         info.productName = productname;

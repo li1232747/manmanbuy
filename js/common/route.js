@@ -68,7 +68,7 @@
         getbrandproductlist: getbrandproductlist,
 
         // 获取销量排行商品的评论
-        getproductcom: getproductcom
+        getproductcom1: getproductcom1
     };
 
 
@@ -388,7 +388,7 @@
     }
 
     // 销量排行商品的评论
-    function getproductcom( productid, callback ) {
+    function getproductcom1( productid, callback ) {
         var url1 = Route.baseUrl + 'getproductcom';
         $.ajax( {
             type: 'get',

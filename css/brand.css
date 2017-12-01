@@ -22,37 +22,37 @@
   font-weight: 700;
 }
 #brand_rank > ul > li {
-  font-size: 16px;
-  padding: 10px;
-  height: 65px;
+  font-size: 0.2962962962962963rem;
+  padding: 0.18518518518518517rem;
+  height: 1.4814814814814814rem;
   border-bottom: 1px solid #ccc;
   position: relative;
 }
 #brand_rank > ul > li > div:first-of-type {
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  margin-top: 10px;
+  width: 0.37037037037037035rem;
+  height: 0.37037037037037035rem;
+  line-height: 0.37037037037037035rem;
+  margin-top: 0.18518518518518517rem;
   background-color: #c9c9c9;
   color: #fff;
   text-align: center;
 }
 #brand_rank > ul > li > div:nth-of-type(2) {
   overflow: hidden;
-  padding-left: 20px;
+  padding-left: 0.37037037037037035rem;
 }
 #brand_rank > ul > li > div:nth-of-type(2) > p:nth-of-type(1) {
   font-weight: 700;
 }
 #brand_rank > ul > li > div:nth-of-type(2) > p:nth-of-type(2) {
   color: #999;
-  margin-top: 5px;
+  margin-top: 0.09259259259259259rem;
 }
 #brand_rank > ul > li > div:last-of-type {
-  font-size: 40px;
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 0.18518518518518517rem;
+  top: 0.2777777777777778rem;
+  font-size: 0.7407407407407407rem;
   color: #ccc;
   font-family: "宋体";
   font-weight: 700;
@@ -81,29 +81,29 @@
   font-weight: 700;
 }
 #brand_product > ul {
-  font-size: 16px;
+  font-size: 0.2962962962962963rem;
 }
 #brand_product > ul > li {
-  height: 118px;
+  height: 2.4074074074074074rem;
+  padding: 0.18518518518518517rem;
   border-bottom: 1px solid #ccc;
-  padding: 10px;
 }
 #brand_product > ul > li > div:first-of-type > img {
   display: block;
-  width: 105px;
-  height: 90px;
+  width: 1.9444444444444444rem;
+  height: 1.6666666666666667rem;
 }
 #brand_product > ul > li > div:nth-of-type(2) {
   overflow: hidden;
-  padding-left: 20px;
+  padding-left: 0.37037037037037035rem;
 }
 #brand_product > ul > li > div:nth-of-type(2) > p:nth-of-type(1) {
   font-weight: 700;
-  line-height: 30px;
+  line-height: 0.5555555555555556rem;
 }
 #brand_product > ul > li > div:nth-of-type(2) > p:nth-of-type(2) {
   color: red;
-  line-height: 30px;
+  line-height: 0.5555555555555556rem;
   font-weight: 700;
 }
 #brand_product > ul > li > div:nth-of-type(2) > p:nth-of-type(3) {
@@ -124,25 +124,25 @@
   font-weight: 700;
 }
 #brand_comment > ul {
-  font-size: 16px;
+  font-size: 0.2962962962962963rem;
 }
 #brand_comment > ul > li {
-  padding: 10px;
+  padding: 0.18518518518518517rem;
   border-bottom: 1px solid #ccc;
 }
 #brand_comment > ul > li .top {
-  height: 110px;
+  height: 2.037037037037037rem;
 }
 #brand_comment > ul > li .top > div:first-of-type > img {
   display: block;
-  width: 105px;
-  height: 90px;
+  width: 1.9444444444444444rem;
+  height: 1.6666666666666667rem;
 }
 #brand_comment > ul > li .top > div:last-of-type {
   overflow: hidden;
   font-weight: 700;
-  padding-left: 20px;
-  line-height: 40px;
+  padding-left: 0.37037037037037035rem;
+  line-height: 0.7407407407407407rem;
   color: #999;
 }
 #brand_comment > ul > li .bottom {
@@ -153,10 +153,10 @@
 }
 #brand_comment > ul > li .bottom > div:first-of-type {
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 0.18518518518518517rem;
 }
 #brand_comment > ul > li .bottom > div:first-of-type > p:first-child {
-  line-height: 40px;
+  line-height: 0.7407407407407407rem;
 }
 #brand_comment > ul > li .bottom > div:first-of-type > p:first-child .left {
   color: #5b6f1a;
@@ -165,15 +165,15 @@
   color: #999;
 }
 #brand_comment > ul > li .bottom > div:first-of-type > p:last-child {
-  line-height: 30px;
+  line-height: 0.5555555555555556rem;
 }
 #brand_comment > ul > li .bottom > div:last-of-type {
   position: absolute;
-  top: -18px;
-  left: 40px;
+  top: -0.33333333rem;
+  left: 0.7407407407407407rem;
   width: 0;
   height: 0;
-  border: 10px solid #ccc;
+  border: 0.18518518518518517rem solid #ccc;
   border-left-color: #fff;
   border-right-color: #fff;
   border-top-color: #fff;

@@ -61,6 +61,12 @@
                         height: 1.8518518518518519rem;
                         >p {
                             font-size: 0.37037037037037035rem;
+                            &:first-of-type {
+                                display: -webkit-box;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 2;
+                                overflow: hidden;
+                            }
                             &:nth-of-type(2) {
                                 font-weight: 700;
                             }

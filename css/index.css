@@ -65,6 +65,10 @@
 }
 #main .product > li > div:nth-of-type(2) > p:first-of-type {
   height: 1.1111111111111112rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 #main .product > li > div:nth-of-type(2) > p:first-of-type > span {
   color: #ff7917;
