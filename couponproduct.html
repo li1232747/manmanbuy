@@ -48,6 +48,19 @@
                 <span>m.manmanbuy.com</span>
             </div>
         </div>
+
+        <div id="modal">
+            <div class="modal_container">
+                <div class="modal_box">
+                    <img src="./images/discount.jpg" alt="">
+                </div>
+
+                <div class="arrow">
+                    <a href="javascript:;" class="left_arrow">&lt;</a>
+                    <a href="javascript:;" class="right_arrow">&gt;</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/html" id="tpl">
@@ -58,7 +71,7 @@
             </div>
             <div>
                 <div>
-                    <p>{{v.couponProductName}}</p>
+                    <p><a href="javascript:;" data-img="{{v.couponProductImg}}">{{v.couponProductName}}</a></p>
                     <p>{{v.couponProductPrice}}</p>
                 </div>
                 <p>{{v.couponProductTime}}</p>
@@ -80,6 +93,45 @@
             Route.getcouponproduct( couponid, function( info ) {
                 console.log( info );
                 $( '#main ul' ).html( template( 'tpl', info ) );
+
+                var length = $( '#main li').length;
+ 
+                // 给每个优惠券注册点击事件
+                $( '#main a' ).on( 'click', function(){
+                    var $this = $( this );
+                    // 获取当前优惠券的图片
+                    var img = $this.data( 'img' );
+                    // 设置到蒙层里
+                    $( '#modal .modal_box').html( img );
+                    // 让蒙层出现
+                    $( '#modal' ).show();
+
+                    // 给蒙层里modal_box注册点击事件，退出蒙层
+                    $( '#modal .modal_box' ).on( 'click', function(){
+                        $('#modal').hide();
+                    } );
+
+                    // 给左右箭头注册点击事件
+                    $('.right_arrow').on( 'click', function(){
+                        if( $this.parents('li').index() >= length -1  ){
+                            return false;
+                        }
+                        // 获取下一个优惠券的图片
+                        $this = $this.parents('li').next().find('a');
+                        img = $this.data('img');
+                        $('#modal .modal_box').html(img);
+                    } );
+
+                    $('.left_arrow').on('click', function () {
+                        if( $this.parents('li').index() <= 0 ){
+                            return false;
+                        }
+                        // 获取上一个优惠券的图片
+                        $this = $this.parents('li').prev().find('a');
+                        img = $this.data('img');
+                        $('#modal .modal_box').html(img);
+                    });
+                } );
             } );
         } );
     </script>

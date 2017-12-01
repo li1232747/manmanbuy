@@ -68,3 +68,56 @@
   font-size: 0.2962962962962963rem;
   color: #f39330;
 }
+/* 蒙层 */
+#modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: none;
+}
+#modal .modal_container {
+  width: 50%;
+  height: 5.555555555555555rem;
+  position: fixed;
+  left: 25%;
+  top: 5.555555555555555rem;
+}
+#modal .modal_container .modal_box {
+  overflow: hidden;
+}
+#modal .modal_container .modal_box > img {
+  display: block;
+  width: 100%;
+}
+#modal .modal_container .arrow .left_arrow {
+  position: absolute;
+  left: -1.48148148rem;
+  top: 50%;
+  transform: translateY(-0.64814815rem);
+  height: 1.2962962962962963rem;
+  width: 0.7407407407407407rem;
+  line-height: 1.2962962962962963rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: "宋体";
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+}
+#modal .modal_container .arrow .right_arrow {
+  position: absolute;
+  top: 50%;
+  right: -1.48148148rem;
+  transform: translateY(-0.64814815rem);
+  height: 1.2962962962962963rem;
+  width: 0.7407407407407407rem;
+  line-height: 1.2962962962962963rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: "宋体";
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+}
