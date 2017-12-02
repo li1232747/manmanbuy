@@ -16,6 +16,11 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+/* 消除点击a标签点击时的阴影 */
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
 input {
   border: 0;
   outline: 0;
